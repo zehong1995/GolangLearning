@@ -49,4 +49,38 @@ func main() {
 	// 切片：能动态分配的空间，可变长度的序列
 	dv := make([]int, 3)
 	fmt.Println(dv[0])
+
+	// 模拟枚举
+	// 给myType写一个String()函数打印字符串值
+	const (
+		id1 myType = iota
+		id2
+		id3
+		id4
+	)
+	fmt.Printf("%s %d %d %d\n", id1, id2, id3, id4)
+
+	// 类型别名&类型定义
+	type DefineInt int  // 类型定义
+	type AliasInt = int // 类型别名
+	var int1 DefineInt
+	var int2 AliasInt
+	fmt.Printf("DefineInt type: %T\n", int1)
+	fmt.Printf("AliasInt type:  %T\n", int2)
+}
+
+type myType int
+
+func (c myType) String() string {
+	if c == 0 {
+		return "id1"
+	} else if c == 1 {
+		return "id2"
+	} else if c == 2 {
+		return "id3"
+	} else if c == 3 {
+		return "id4"
+	} else {
+		return "NULL"
+	}
 }

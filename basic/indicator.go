@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"flag"
+	"fmt"
+)
 
 /*
  *类型指针:
@@ -26,4 +29,10 @@ func main() {
 	ptr2 := new(int)
 	ptr2 = &x
 	fmt.Printf("PtrValue:%p\nValue:%d\nType:%T\n", ptr2, *ptr2, ptr2)
+
+	// 获取命令行的输入信息
+	// go run basic/indicator.go --mode=fast
+	var modePtr = flag.String("mode", "", "process mode")
+	flag.Parse()
+	fmt.Println(*modePtr)
 }
